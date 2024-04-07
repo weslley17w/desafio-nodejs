@@ -3,4 +3,6 @@ node_modules/*
 build/*
 .env
 dev.db
+prisma/dev.db
+prisma/dev.db-journal
 coverage/*
