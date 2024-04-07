@@ -15,7 +15,6 @@ export default class ScheduleService {
       return { data, status: 201 }
     } catch (error) {
       let e = error as Error
-      console.log(e.message)
       if (e.message === 'Email is required')
         return { data: 'Email is required', status: 400 }
       else if (e.message === 'Invalid email')
