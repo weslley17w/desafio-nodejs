@@ -6,7 +6,8 @@
   "author": "Weslley Barros <weslley17w@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "node dist/server.js",
+    "build": "tsc",
+    "start": "node build/server.js",
     "start:dev": "yarn lint && nodemon",
     "test": "jest --coverage",
     "lint": "eslint --ignore-path .eslintignore --ext .js,.ts",
