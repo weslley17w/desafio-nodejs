@@ -1,7 +1,7 @@
 import { Request, Response } from 'express'
 
-export default class homeController {
+export default class HomeController {
   async index(req: Request, res: Response) {
-    res.send('Hello World')
+    res.send('Schedule API')
   }
 }
