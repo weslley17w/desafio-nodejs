@@ -31,4 +31,21 @@ export default class ScheduleService {
       else return { data: 'Internal server error', status: 500 }
     }
   }
+
+  async cancel(id: string) {
+    try {
+      let data = await prisma.schedule.update({
+        where: {
+          id,
+        },
+        data: {
+          status: 'CANCELED',
+        },
+      })
+
+      return { data, status: 200 }
+    } catch (error) {
+      return { data: 'Internal server error', status: 500 }
+    }
+  }
 }

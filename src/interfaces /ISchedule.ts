@@ -1,7 +1,6 @@
-interface ISchedule {
-  id?: number
-  email: string
-  status?: string
+interface IScheduleResponse {
+  data: any
+  status: number
 }
 
-export default ISchedule
+export { IScheduleResponse }
