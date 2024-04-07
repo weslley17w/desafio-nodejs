@@ -1,6 +1,15 @@
 import Validate from '../utils/Validate'
 import { prisma } from '../prisma'
 export default class ScheduleService {
+  async getAll() {
+    try {
+      let data = await prisma.schedule.findMany()
+      return { data, status: 200 }
+    } catch (error) {
+      return { data: 'Internal server error', status: 500 }
+    }
+  }
+
   async create(email: string) {
     try {
       if (!email) throw new Error('Email is required')

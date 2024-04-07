@@ -7,6 +7,7 @@ const home = new HomeController()
 const schedule = new ScheduleController()
 
 router.get('/', home.index)
+router.get('/schedule', schedule.getAll)
 router.post('/schedule', schedule.create)
 
 export { router }
