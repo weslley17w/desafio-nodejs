@@ -44,4 +44,16 @@ describe('Test get all Schedules', () => {
     expect(status).toBe(200)
     expect(data).toEqual([resultMock])
   })
+
+  describe('Test cancel Schedule', () => {
+    it('should return 200 if schedule is canceled', async () => {
+      const scheduleService = new ScheduleService()
+      scheduleService.cancel = jest
+        .fn()
+        .mockResolvedValue({ data: resultMock, status: 200 })
+      const { data, status } = await scheduleService.cancel(resultMock.data.id)
+      expect(status).toBe(200)
+      expect(data).toBe(resultMock)
+    })
+  })
 })
