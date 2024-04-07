@@ -8,7 +8,7 @@ const resultMock = {
   status: 201,
 }
 
-describe('Test Schedule Service', () => {
+describe('Test create Schedule', () => {
   it('should return 400 if email is not provided', async () => {
     const scheduleService = new ScheduleService()
     const { data, status } = await scheduleService.create('')
@@ -31,5 +31,17 @@ describe('Test Schedule Service', () => {
     const { data, status } = await scheduleService.create('valid@email.com')
     expect(status).toBe(201)
     expect(data).toBe(resultMock)
+  })
+})
+
+describe('Test get all Schedules', () => {
+  it('should return 200 if there are schedules', async () => {
+    const scheduleService = new ScheduleService()
+    scheduleService.getAll = jest
+      .fn()
+      .mockResolvedValue({ data: [resultMock], status: 200 })
+    const { data, status } = await scheduleService.getAll()
+    expect(status).toBe(200)
+    expect(data).toEqual([resultMock])
   })
 })
